@@ -18,8 +18,8 @@ return [
             "drivers" => [
                 \Curfle\Auth\Guardians\Guardian::DRIVER_BEARER
             ],
-            "authenticatable" => \App\Models\User::class,
-            "guardian" => \Curfle\Auth\Guardians\JWTGuardian::class
+            "authenticatable" => \App\Models\Access::class,
+            "guardian" => \App\Auth\Guardians\AccessGuardian::class
         ]
     ]
     

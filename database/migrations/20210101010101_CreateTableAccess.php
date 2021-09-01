@@ -4,7 +4,7 @@ use Curfle\Database\Migrations\Migration;
 use Curfle\Database\Schema\Blueprint;
 use Curfle\Support\Facades\Schema;
 
-class CreateTableUser extends Migration
+class CreateTableAccess extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateTableUser extends Migration
      */
     public function up()
     {
-        Schema::create("user", function (Blueprint $table) {
+        Schema::create("access", function (Blueprint $table) {
             $table->id("id");
-            $table->string("firstname", 250);
-            $table->string("lastname", 250);
-            $table->string("email", 250);
-            $table->string("password", 100);
-            $table->timestamp("created")->defaultCurrent();
+            $table->string("token", 100);
+            $table->string("secret", 100);
+            $table->string("domain", 250)->unique();
+            $table->datetime("created")->defaultCurrent();
         });
     }
 
@@ -30,6 +29,6 @@ class CreateTableUser extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists("user");
+        Schema::dropIfExists("access");
     }
 }

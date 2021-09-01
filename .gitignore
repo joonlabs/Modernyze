@@ -1,6 +1,7 @@
 /.idea
 /.vscode
 /vendor
+resources/products
 .env
 .env.backup
 .phpunit.result.cache

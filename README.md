@@ -1,6 +1,6 @@
 # Modernyze
 Modernyze is a application that helps you build update servers for your application. 
-It comes with a GraphQL api for not only quering product versions, but also for downloading and verifying them.  
+It comes with a REST api for not only quering product versions, but also for downloading and verifying them.  
 ## Installation
 ### 1st Step
 Clone or download the repo: 
@@ -27,9 +27,9 @@ SERVING_DIRECTORY="./resources"
 ```
 
 ### 3rd Step
-Run the setup script - This will create the database. After that you can migrate the database.
+Run the setup script - This will create the database and also migrate it.
 ```bash
-php budy setup && php budy migrate
+php buddy setup
 ```
 
 ### 4th Step
