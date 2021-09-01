@@ -3,9 +3,10 @@ Modernyze is a application that helps you build update servers for your applicat
 It comes with a REST api for not only quering product versions, but also for downloading and verifying them.  
 ## Installation
 ### 1st Step
-Clone or download the repo: 
+Clone or download the repo and run composer:
 ```bash
 git clone https://github.com/joonlabs/Modernyze.git
+composer install --no-dev
 ```
 ### 2nd Step
 Create a `.env` file in the project root, just like the `.env.example` file.
