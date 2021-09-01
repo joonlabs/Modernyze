@@ -40,5 +40,34 @@ php buddy modernyze:generate my-domain.com
 This will give you a token which can be used for authentication and a secret which should be kept secure under all circumstances. 
 The secret can then be used for validating the received update package via the HS256 algorithm.
 
+## API
+### Authorization
+The api uses the bearer authorization header for identifying accessors. 
+Accesses can be created via the `modernyze:generate` command. This will return a token for authentication and a secret for checking the file hash.
+### Endpoints
+The api persists of the following endpoints:
+
+**Method:** `GET`  
+**Description:** Get all available products.  
+`/api/products/all`
+
+**Method:** `GET`  
+**Description:** Get all available versions for a product.  
+`/api/product/{product}/versions`
+
+**Method:** `GET`  
+**Description:** Get the latest available version for a product.  
+`/api/product/{product}/latest`
+
+**Method:** `GET`  
+**Description:** Get the download link and personal hash for a specific product version.  
+`/api/product/{product}/{version}`
+
+**Method:** `GET`  
+**Description:** Download link for a specific product version (see above).  
+`/api/product/{product}/{version}/download`
+
+
+
 ## License
 The Modernyze project is open-sourced software licensed under the [MIT license](LICENSE).
