@@ -13,7 +13,7 @@ use Curfle\Support\Facades\Route;
  */
 
 // all products
-Route::post("/products/all", [\App\Http\Controllers\ProductController::class, "all"])->middleware("auth");
+Route::get("/products/all", [\App\Http\Controllers\ProductController::class, "all"])->middleware("auth");
 
 // all product versions
 Route::get("/product/{product}/versions", [\App\Http\Controllers\ProductController::class, "versions"])->where("product", "([a-z]|[A-Z]|[0-9]|-)+")->middleware("auth");
