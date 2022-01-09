@@ -80,3 +80,13 @@ Buddy::command("modernyze:delete {id}", function (\Curfle\Console\Input $input) 
 Buddy::command("modernyze:list", function (\Curfle\Console\Input $input) {
     $this->write(print_r(\App\Models\Access::all(), true));
 });
+
+/**
+ * Returns the latest version of a product.
+ */
+Buddy::command("modernyze:latest {product}", function (\Curfle\Console\Input $input) {
+    $product = $input->namedArgument("product");
+    $version = \Curfle\Support\Facades\App::resolve(\App\Http\Controllers\ProductController::class)
+        ->latest($product)["version"];
+    $this->write($version);
+})->where("product", "(\w|\-)+");
