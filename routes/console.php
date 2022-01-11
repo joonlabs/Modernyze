@@ -43,7 +43,7 @@ Buddy::command("setup", function (\Curfle\Console\Input $input, \Curfle\FileSyst
 Buddy::command("modernyze:generate {domain}", function (\Curfle\Console\Input $input) {
     $token = bin2hex(random_bytes(50));
     $secret = bin2hex(random_bytes(50));
-    $domain = $input->namedArgument("domain");
+    $domain = $input->argument("domain");
     try {
         \App\Models\Access::create([
             "token" => $token,
@@ -66,7 +66,7 @@ Buddy::command("modernyze:generate {domain}", function (\Curfle\Console\Input $i
  * Delete an access.
  */
 Buddy::command("modernyze:delete {id}", function (\Curfle\Console\Input $input) {
-    $id = (int)$input->namedArgument("id");
+    $id = (int)$input->argument("id");
     $access = \App\Models\Access::get($id);
     if ($access !== null && $access->delete())
         $this->success("Domain [{$access->domain}] deleted successfully.");
@@ -85,7 +85,7 @@ Buddy::command("modernyze:list", function (\Curfle\Console\Input $input) {
  * Returns the latest version of a product.
  */
 Buddy::command("modernyze:latest {product}", function (\Curfle\Console\Input $input) {
-    $product = $input->namedArgument("product");
+    $product = $input->argument("product");
     $version = \Curfle\Support\Facades\App::resolve(\App\Http\Controllers\ProductController::class)
         ->latest($product)["version"];
     $this->write($version);
