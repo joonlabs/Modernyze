@@ -28,13 +28,10 @@ class Access extends AuthenticatableModel
     /**
      * Returns an access by its token.
      *
-     * @throws \ReflectionException
      */
     public static function byToken(string $token): ?static
     {
-        return static::__createInstanceFromArray(
-            static::where("token", $token)->first()
-        );
+        return static::where("token", $token)->first();
     }
 
     /**
