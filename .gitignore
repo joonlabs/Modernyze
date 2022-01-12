@@ -2,6 +2,7 @@
 /.vscode
 /vendor
 resources/products
+resources/scripts
 .env
 .env.backup
 .phpunit.result.cache
